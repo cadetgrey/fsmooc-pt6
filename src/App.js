@@ -5,14 +5,16 @@ import AnecdoteList from './components/AnecdoteList'
 
 class App extends React.Component {
 
+  // refactor to use context, or wait for connect to be handled?
+
   render() {
-    const anecdotes = this.props.store.getState()
+    const store = this.props.store
     return (
       <div>
         <h1>Programming anecdotes</h1>
-        <Notification />
-        <AnecdoteList store={this.props.store} />
-        <AnecdoteForm store={this.props.store} />
+        <Notification store={store} />
+        <AnecdoteList store={store} />
+        <AnecdoteForm store={store} />
       </div>
     )
   }
